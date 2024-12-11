@@ -1,0 +1,61 @@
+# Alacritty Configuration
+
+# Font settings
+font:
+  normal:
+    family: "FiraCode Nerd Font"
+  size: 12
+  bold:
+    family: "FiraCode Nerd Font"
+  italic:
+    family: "FiraCode Nerd Font"
+  bold_italic:
+    family: "FiraCode Nerd Font"
+
+# Window settings
+window:
+  padding:
+    x: 10
+    y: 10
+  decorations: none
+  dynamic_title: no
+  opacity: 0.7
+  startup_mode: Windowed
+  dimensions:
+    columns: 95
+    lines: 25
+
+# Cursor settings
+cursor:
+  blink: true
+  blink_interval: 500
+  unfocused_hollow: true
+
+# Scrolling
+scrolling:
+  history: 2000
+  multiplier: 3
+
+# Colors
+import:
+  - ~/.cache/wal/colors-alacritty.yml
+
+# Mouse bindings (optional equivalent for scrolling behavior)
+mouse:
+  double_click:
+    threshold: 300
+  triple_click:
+    threshold: 300
+
+# Bell
+bell:
+  audible: false
+
+# Selection colors
+selection:
+  text: Rgba(255, 255, 255, 1.0)
+  background: Rgba(0, 0, 0, 0.5)
+
+# Keybindings
+key_bindings:
+  - { key: Q, mods: Control, action: Quit } # Ctrl+Q to quit

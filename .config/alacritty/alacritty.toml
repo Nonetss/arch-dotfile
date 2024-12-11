@@ -1,0 +1,20 @@
+# Configuración básica funcional de Alacritty
+
+[window]
+decorations = "none"
+dynamic_title = false
+startup_mode = "Windowed"
+padding = { x = 10, y = 10 }
+opacity = 0.8
+
+[font]
+normal = { family = "FiraCode Nerd Font", style = "Regular" }
+size = 12.5
+
+[cursor]
+style = "Block"
+blink_interval = 500
+
+[scrolling]
+history = 1000
+multiplier = 3

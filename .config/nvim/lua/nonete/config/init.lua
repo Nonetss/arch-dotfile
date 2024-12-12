@@ -1,0 +1,6 @@
+require("nonete.config.spell")
+require("nonete.config.telescope")
+require("nonete.config.latex-markdown")
+require("nonete.config.notify")
+require("nonete.config.noice")
+require("nonete.config.ollama")

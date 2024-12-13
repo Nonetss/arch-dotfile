@@ -28,4 +28,9 @@ shape = "Beam"
 history = 1000
 multiplier = 3
 
+[general]
+import = [
+    "./themes/themes/everforest_dark.toml"
+]
+
 

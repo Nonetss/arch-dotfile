@@ -1,93 +1,54 @@
+-- This file contains the configuration for the obsidian.nvim plugin in Neovim.
+
 return {
 	-- Plugin: obsidian.nvim
 	-- URL: https://github.com/epwalsh/obsidian.nvim
-	-- Description: A Neovim plugin for integrating with Obsidian, a powerful knowledge base.
+	-- Description: A Neovim plugin for integrating with Obsidian, a powerful knowledge base that works on top of a local folder of plain text Markdown files.
 	"epwalsh/obsidian.nvim",
-	version = "*", -- Use the latest stable release.
+	version = "*", -- Use the latest release instead of the latest commit (recommended)
 
 	dependencies = {
 		-- Dependency: plenary.nvim
+		-- URL: https://github.com/nvim-lua/plenary.nvim
+		-- Description: A Lua utility library for Neovim.
 		"nvim-lua/plenary.nvim",
 	},
 
-	keys = {
-		-- Navegar y seguir enlaces
-		{
-			"<leader>of",
-			function()
-				require("obsidian").util.gf_passthrough()
-			end,
-			desc = "Follow link under cursor",
-		},
-
-		-- Alternar estado de checkboxes
-		{
-			"<leader>od",
-			function()
-				require("obsidian").util.toggle_checkbox()
-			end,
-			desc = "Toggle checkbox state",
-		},
-
-		-- Crear una nueva nota para Newsletter-Issue
-		{
-			"<leader>onn",
-			function()
-				require("obsidian").commands.new_note("Newsletter-Issue")
-			end,
-			desc = "Create new note for Newsletter-Issue",
-		},
-
-		-- Insertar plantilla Newsletter-Issue
-		{
-			"<leader>ont",
-			function()
-				require("obsidian").util.insert_template("Newsletter-Issue")
-			end,
-			desc = "Insert template Newsletter-Issue",
-		},
-
-		-- Abrir la nota diaria
-		{ "<leader>ot", "<cmd>ObsidianToday<CR>", desc = "Open today's note" },
-
-		-- Buscar en las notas
-		{ "<leader>os", "<cmd>ObsidianSearch<CR>", desc = "Search notes with Telescope" },
-
-		-- Crear una nueva nota
-		{ "<leader>on", "<cmd>ObsidianNew<CR>", desc = "Create a new blank note" },
-	},
-
 	opts = {
-		-- Workspaces configurados para Obsidian
+		-- Define workspaces for Obsidian
 		workspaces = {
-			{ name = "work", path = "/home/nonelap/Notes/work" },
-			{ name = "fisica", path = "/home/nonelap/Notes/fisica" },
-			{ name = "personal", path = "/home/nonelap/Notes/personal" },
-			{ name = "programacion", path = "/home/nonelap/Notes/programacion" },
+			{
+				name = "nonelap", -- Name of the workspace
+				path = "~/Notes", -- Path to the notes directory
+			},
 		},
 
-		-- Configuración de autocompletado
+		-- Completion settings
 		completion = {
-			nvim_cmp = true, -- Integración con nvim-cmp
-			min_chars = 2, -- Mínimo de caracteres para activar el autocompletado
+			nvim_cmp = true, -- Enable completion using nvim-cmp
+			min_chars = 2, -- Minimum characters required to trigger completion
 		},
 
-		-- Subdirectorio para notas nuevas y adjuntos
-		notes_subdir = "limbo",
-		new_notes_location = "limbo",
+		notes_subdir = "limbo", -- Subdirectory for notes
+		new_notes_location = "limbo", -- Location for new notes
+
+		-- Settings for attachments
 		attachments = {
-			img_folder = "files", -- Carpeta para adjuntar imágenes
+			img_folder = "files", -- Folder for image attachments
 		},
 
-		-- Configuración para notas diarias
+		-- Settings for daily notes
 		daily_notes = {
-			folder = "Daily", -- Carpeta para notas diarias
-			template = "note", -- Plantilla para notas diarias
+			template = "note", -- Template for daily notes
 		},
 
-		-- Función para generar frontmatter en las notas
+		-- Function to generate frontmatter for notes
 		note_frontmatter_func = function(note)
+			-- This is equivalent to the default frontmatter function.
 			local out = { id = note.id, aliases = note.aliases, tags = note.tags }
+
+			-- `note.metadata` contains any manually added fields in the frontmatter.
+			-- So here we just make sure those fields are kept in the frontmatter.
 			if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
 				for k, v in pairs(note.metadata) do
 					out[k] = v
@@ -96,12 +57,17 @@ return {
 			return out
 		end,
 
-		-- Función para generar IDs únicos para notas
+		-- Function to generate note IDs
 		note_id_func = function(title)
+			-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+			-- In this case a note with the title 'My new note' will be given an ID that looks
+			-- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
 			local suffix = ""
 			if title ~= nil then
+				-- If title is given, transform it into valid file name.
 				suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
 			else
+				-- If title is nil, just add 4 random uppercase letters to the suffix.
 				for _ = 1, 4 do
 					suffix = suffix .. string.char(math.random(65, 90))
 				end
@@ -109,12 +75,15 @@ return {
 			return tostring(os.time()) .. "-" .. suffix
 		end,
 
-		-- Configuración de plantillas
+		-- Settings for templates
 		templates = {
-			subdir = "templates", -- Subdirectorio para plantillas
-			date_format = "%Y-%m-%d-%a", -- Formato de fecha para plantillas
-			gtime_format = "%H:%M", -- Formato de hora para plantillas
-			tags = "", -- Etiquetas predeterminadas para plantillas
+			subdir = "templates", -- Subdirectory for templates
+			date_format = "%Y-%m-%d-%a", -- Date format for templates
+			gtime_format = "%H:%M", -- Time format for templates
+			tags = "", -- Default tags for templates
+		},
+		ui = {
+			enable = false, -- Si no quieres usar características UI adicionales, cámbialo a false
 		},
 	},
 }

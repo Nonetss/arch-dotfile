@@ -5,5 +5,14 @@ return {
 	-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
 	---@module 'render-markdown'
 	---@type render.md.UserConfig
-	opts = {},
+	opts = {
+		code = {
+			width = "full",
+			enabled = true,
+			border = "thick",
+			disable_background = { "diff" },
+			sign = true,
+			style = "full",
+		},
+	},
 }

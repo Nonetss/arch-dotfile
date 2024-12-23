@@ -30,7 +30,7 @@ blurredwallpaper="$HOME/.config/ml4w/cache/blurred_wallpaper.png"
 squarewallpaper="$HOME/.config/ml4w/cache/square_wallpaper.png"
 rasifile="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
 blurfile="$HOME/.config/ml4w/settings/blur.sh"
-defaultwallpaper="$HOME/wallpaper/windous_pradera_mix.png"
+defaultwallpaper="/home/nonelap/wallpaper/windous_pradera_mix.png"
 wallpapereffect="$HOME/.config/ml4w/settings/wallpaper-effect.sh"
 blur="50x30"
 blur=$(cat $blurfile)
@@ -97,7 +97,7 @@ if [ -f $wallpapereffect ]; then
         echo ":: Loading wallpaper $generatedversions/$effect-$wallpaperfilename with effect $effect"
         echo ":: Setting wallpaper with $used_wallpaper"
         touch $waypaperrunning
-        waypaper --wallpaper $used_wallpaper
+        ~/.config/hypr/waypaper-env/bin/python -m waypaper --wallpaper /home/nonelap/wallpaper/windous_pradera_mix.png
     else
         echo ":: Wallpaper effect is set to off"
     fi

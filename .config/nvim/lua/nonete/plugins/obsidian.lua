@@ -29,9 +29,6 @@ return {
 			min_chars = 2, -- Minimum characters required to trigger completion
 		},
 
-		notes_subdir = "limbo", -- Subdirectory for notes
-		new_notes_location = "limbo", -- Location for new notes
-
 		-- Settings for attachments
 		attachments = {
 			img_folder = "files", -- Folder for image attachments

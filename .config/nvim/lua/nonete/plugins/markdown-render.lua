@@ -12,7 +12,6 @@ return {
 			border = "thick",
 			disable_background = { "diff" },
 			sign = true,
-			style = "full",
 		},
 	},
 }

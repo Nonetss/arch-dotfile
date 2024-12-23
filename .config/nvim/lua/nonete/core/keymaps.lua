@@ -49,3 +49,4 @@ vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Create New N
 vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Search Obsidian" })
 vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })
 vim.keymap.set("n", "<leader>od", "<cmd>ObsidianToday<CR>", { desc = "Create New Note for today" })
+vim.keymap.set("n", "<leader>of", "<cmd>ObsidianFollowLink<CR>", { desc = "Follow link" })

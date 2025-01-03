@@ -2,10 +2,6 @@
 # AUTOSTART
 # -----------------------------------------------------
 
-# Inicia tmux automáticamente con una nueva sesión
-if [ -z "$TMUX" ]; then
-  tmux new-session
-fi
 
 
 # -----------------------------------------------------

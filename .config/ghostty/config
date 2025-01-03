@@ -1,0 +1,11 @@
+# fuente
+font-size = 13
+
+# fondo
+background-opacity = 0.9
+
+
+# window
+window-padding-x = 12
+window-decoration = "false"
+window-new-tab-position = "end"

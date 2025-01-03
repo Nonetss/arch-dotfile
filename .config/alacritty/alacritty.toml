@@ -30,7 +30,7 @@ multiplier = 3
 
 [general]
 import = [
-    "./themes/themes/everforest_dark.toml"
+    "./themes/everforest_dark.toml"
 ]
 
 

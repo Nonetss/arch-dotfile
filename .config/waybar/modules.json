@@ -20,7 +20,7 @@
       "default": ""
     },
     "persistent-workspaces": {
-            "*": 1
+      "*": 1
     }
   },
 
@@ -66,7 +66,7 @@
     "format": ""
   },
 
-    // Tools
+  // Tools
   "custom/tools": {
     "format": "",
     "tooltip-format": "Tools"
@@ -88,7 +88,7 @@
     "return-type": "json",
     "exec": "~/.config/ml4w/scripts/updates.sh",
     "interval": 1800,
-    "on-click": "$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e ~/.config/ml4w/scripts/installupdates.sh",
+    "on-click": "alacritty --class dotfiles-floating -e ~/.config/ml4w/scripts/installupdates.sh",
     "on-click-right": "~/.config/ml4w/settings/software.sh"
   },
 
@@ -272,10 +272,7 @@
   // Group Links
   "group/links": {
     "orientation": "horizontal",
-    "modules": [
-      "custom/chatgpt",
-      "custom/empty"      
-    ]
+    "modules": ["custom/chatgpt", "custom/empty"]
   },
 
   // Group Settings
@@ -286,11 +283,7 @@
       "children-class": "not-memory",
       "transition-left-to-right": true
     },
-    "modules": [
-      "custom/settings",
-      "custom/waybarthemes",
-      "custom/wallpaper"
-    ]
+    "modules": ["custom/settings", "custom/waybarthemes", "custom/wallpaper"]
   },
 
   // Network
@@ -305,7 +298,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
     "on-click": "~/.config/ml4w/settings/networkmanager.sh",
-    "on-click-right": "~/.config/ml4w/scripts/nm-applet.sh toggle",
+    "on-click-right": "~/.config/ml4w/scripts/nm-applet.sh toggle"
   },
 
   // Battery

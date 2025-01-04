@@ -1,1 +1,1 @@
-$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e nmtui
+alacritty --class dotfiles-floating -e nmtui

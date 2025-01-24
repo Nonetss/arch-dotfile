@@ -1,5 +1,5 @@
 require("ollama").setup({
-	model = "llama3",
+	model = "deepseek-r1:14b",
 	url = "http://127.0.0.1:11434",
 	serve = {
 		on_start = false,
@@ -13,7 +13,7 @@ require("ollama").setup({
 		Sample_Prompt = {
 			prompt = "This is a sample prompt that receives $input and $sel(ection), among others.",
 			input_label = "> ",
-			model = "llama3",
+			model = "deepseek-r1:14b",
 			action = "display",
 		},
 	},

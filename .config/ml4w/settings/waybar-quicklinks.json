@@ -25,7 +25,7 @@
     "tooltip-format": "Open calculator"
   },
   // VPN Launcher
-  "custom/vpn": {
+  "custom/quicklink7": {
     "format": "",
     "on-click": "~/.config/ml4w/settings/vpn.sh",
     "tooltip-format": "VPN Support"
@@ -40,9 +40,7 @@
   "group/quicklinks": {
     "orientation": "horizontal",
     "modules": [
-      "custom/quicklink2",
-      "custom/quicklink3",
-      "custom/vpn",
+      "custom/quicklink7",
       /*
             "custom/quicklink4",
             */

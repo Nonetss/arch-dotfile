@@ -1,15 +1,22 @@
 #!/bin/bash
 
-# Nombre de la interfaz de la VPN
 VPN_INTERFACE="vpn"
+
+# Pedir la contraseña con un cuadro de diálogo
+PASSWORD=$(zenity --password --title="Autenticación requerida")
+
+# Si el usuario cancela, salir
+if [[ -z "$PASSWORD" ]]; then
+    exit 1
+fi
 
 # Comprobar si la VPN está activa
 if ip link show "$VPN_INTERFACE" | grep -q "UP"; then
     echo "🔻 La VPN está activa. Desactivándola..."
-    sudo wg-quick down "$VPN_INTERFACE"
-    echo "✅ VPN desactivada."
+    echo "$PASSWORD" | sudo -S wg-quick down "$VPN_INTERFACE"
+    zenity --info --title="VPN" --text="✅ VPN desactivada."
 else
     echo "🔺 La VPN está inactiva. Activándola..."
-    sudo wg-quick up "$VPN_INTERFACE"
-    echo "✅ VPN activada."
+    echo "$PASSWORD" | sudo -S wg-quick up "$VPN_INTERFACE"
+    zenity --info --title="VPN" --text="✅ VPN activada."
 fi

@@ -50,3 +50,10 @@ esac
 # pnpm end
 export PATH=$HOME/.local/bin:$PATH
 export PATH=${pwd}/commit-oracle:$PATH
+
+# bun completions
+[ -s "/home/nonegod/.bun/_bun" ] && source "/home/nonegod/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

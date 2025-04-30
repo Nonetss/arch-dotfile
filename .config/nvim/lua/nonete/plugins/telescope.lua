@@ -24,6 +24,15 @@ return {
 			},
 		})
 
+		opts = {
+			defaults = {
+				layout_strategy = "horizontal",
+				layout_config = { prompt_position = "top" },
+				sorting_strategy = "ascending",
+				winblend = 0,
+			},
+		}
+
 		telescope.load_extension("fzf")
 
 		-- set keymaps
